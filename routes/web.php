@@ -57,3 +57,8 @@ use App\Http\Controllers\StudentController;
 
 Route::resource("student",StudentController::class);
 
+/////////////////
+/////// Views
+////////////////
+
+Route::get("view",[\App\Http\Controllers\ViewController::class,"index"]);
