@@ -62,3 +62,9 @@ Route::resource("student",StudentController::class);
 ////////////////
 
 Route::get("view",[\App\Http\Controllers\ViewController::class,"index"]);
+
+//////////
+// ORM /
+//
+
+Route::get("orm",[\App\Http\Controllers\ORMController::class,"index"]);
