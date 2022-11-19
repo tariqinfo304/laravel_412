@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table("student",function(Blueprint $table){
-
-            $table->string("name","255")->change();
-            $table->unsignedBigInteger("classes_id");
-            $table->renameColumn('age', 'person_age');
+        Schema::create('student_book', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger("book_id");
+            $table->unsignedBigInteger("student_id");
+            $table->timestamps();
         });
     }
 
@@ -28,10 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table("student",function(Blueprint $table){
-
-            $table->string("name","50")->change();
-            $table->renameColumn('person_age', 'age');
-        });
+        Schema::dropIfExists('student_book');
     }
 };
