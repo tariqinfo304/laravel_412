@@ -68,3 +68,16 @@ Route::get("view",[\App\Http\Controllers\ViewController::class,"index"]);
 //
 
 Route::get("orm",[\App\Http\Controllers\ORMController::class,"index"]);
+
+
+////////////
+// Template integrated into website form
+/////////////
+
+Route::get("store",[\App\Http\Controllers\Store\HomeController::class,"index"]);
+
+
+Route::get("store/cart",[\App\Http\Controllers\Store\CartController::class,"cart"]);
+
+
+Route::get("store/checkout",[\App\Http\Controllers\Store\CartController::class,"checkout"]);
