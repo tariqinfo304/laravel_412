@@ -75,9 +75,6 @@ Route::get("orm",[\App\Http\Controllers\ORMController::class,"index"]);
 /////////////
 
 Route::get("store",[\App\Http\Controllers\Store\HomeController::class,"index"]);
-
-
 Route::get("store/cart",[\App\Http\Controllers\Store\CartController::class,"cart"]);
-
-
 Route::get("store/checkout",[\App\Http\Controllers\Store\CartController::class,"checkout"]);
+Route::resource("store/product",\App\Http\Controllers\Store\ProductController::class);
