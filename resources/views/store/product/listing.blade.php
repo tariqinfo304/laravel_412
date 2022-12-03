@@ -36,6 +36,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Qty</th>
@@ -47,6 +48,14 @@
                                 
 	                                <tr>
 		                                <td>{{$row->id}}</td>
+                                        <td>
+                                            @if(!empty($row->img))
+                                            <img width="150px" height="150px" src="{{ Asset('upload/'.$row->img) }}" />
+
+                                            @else
+                                                ---
+                                            @endif
+                                        </td>
 		                                <td>{{$row->name}}</td>
 		                                <td>{{$row->price}}</td>
 		                                <td>{{ $row->qty}}</td>

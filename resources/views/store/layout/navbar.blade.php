@@ -23,6 +23,9 @@
                     <li
                     class=""
                     ><a href="{{ URL('store/checkout') }}">Checkout</a></li>
+                    <li
+                    class=""
+                    ><a href="{{ URL('store/product') }}">Product</a></li>
                    <!--  <li
                    
                     ><a href="#">Category</a></li>

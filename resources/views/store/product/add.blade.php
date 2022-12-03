@@ -75,6 +75,25 @@
                                                     <p class="alert alert-danger">{{ $message }}</p>
                                                 @enderror
                                             </p>
+
+                                            <p id="billing_company_field" class="form-row form-row-wide">
+                                                <label class="" for="billing_company">Front Image</label>
+                                                <input type="file"
+                                                 name="front_image" class="input-text ">
+                                                @error("front_image")
+                                                    <p class="alert alert-danger">{{ $message }}</p>
+                                                @enderror
+                                            </p>
+
+                                             <p id="billing_company_field" class="form-row form-row-wide">
+                                                <label class="" for="billing_company">Other Images</label>
+                                                <input type="file"
+                                                 name="other_image[]" multiple class="input-text ">
+                                                @error("other_image")
+                                                    <p class="alert alert-danger">{{ $message }}</p>
+                                                @enderror
+                                            </p>
+
                                             
                                             <div class="clear"></div>
 

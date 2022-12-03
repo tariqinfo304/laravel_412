@@ -78,3 +78,7 @@ Route::get("store",[\App\Http\Controllers\Store\HomeController::class,"index"]);
 Route::get("store/cart",[\App\Http\Controllers\Store\CartController::class,"cart"]);
 Route::get("store/checkout",[\App\Http\Controllers\Store\CartController::class,"checkout"]);
 Route::resource("store/product",\App\Http\Controllers\Store\ProductController::class);
+
+
+Route::get("store/register",[\App\Http\Controllers\Store\UserController::class,"register"]);
+Route::post("store/register",[\App\Http\Controllers\Store\UserController::class,"register_save"]);

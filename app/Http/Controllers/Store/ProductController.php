@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Store;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProductModel;
+use App\Models\ProductImage;
 
 
 class ProductController extends Controller
@@ -16,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $list = ProductModel::paginate(2);
+        $list = ProductModel::paginate(4);
        // dd($list);
         return view("store.product.listing")->with("list",$list);
     }
@@ -44,19 +45,44 @@ class ProductController extends Controller
 
             "name" => "required|Min:5",
             "price" => "required|unique:App\Models\ProductModel",
-            "qty" => "required"
+            "qty" => "required",
+            "front_image" => "required"
         ]);
-        //dd($request->all());
+            
+        // dd($request->all());
         //dd($request->input());
         //dd($request->input("name"));
 
-        $p = new ProductModel();
+        /*$p = new ProductModel();
         $p->name = $request->name;
         $p->price = $request->price;
         $p->qty  = $request->qty;
-        $p->img = "";
-
+        $p->img = $request->front_image->store("","local_public");
         $p->save();
+        */
+        //OR//
+        $p = new ProductModel();
+
+        $stored_obj = $p->create([
+            "name"      => $request->name,
+            "price"     => $request->price,
+            "qty"       => $request->qty,
+            "img"       => $request->front_image->store("","local_public")
+        ]);
+
+        if(!empty($request->other_image))
+        {
+            foreach($request->other_image as $file)
+            {
+                $obj = new ProductImage();
+                $obj->product_id = $stored_obj->id;
+                $obj->img = $file->store("","local_public");
+                $obj->save();
+            }
+        }
+       // dd($stored_obj);
+      //  die($id);
+
 
         return redirect("store/product"); 
 
