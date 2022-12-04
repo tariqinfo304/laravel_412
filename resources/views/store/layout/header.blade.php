@@ -4,11 +4,26 @@
             <div class="col-md-8">
                 <div class="user-menu">
                     <ul>
-                        <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                         @if(!empty(session("user")))
+                        <li><a href="#"><i class="fa fa-user"></i>
+
+                           
+                                {{ "Welcome To ". session("user")->name }}
+                           
+                        </a></li>
+                         @endif
                         <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                         <li><a href="cart.php"><i class="fa fa-user"></i> My Cart</a></li>
                         <li><a href="checkout.php"><i class="fa fa-user"></i> Checkout</a></li>
-                        <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+
+                         @if(empty(session("user")))
+                         <li><a href="{{ URL('store/user/login') }}"><i class="fa fa-user"></i> Login</a></li>
+                        <li><a href="{{ URL('store/user/register') }}"><i class="fa fa-user"></i> Register</a></li>
+                        @endif
+                        @if(!empty(session("user")))
+                         <li><a href="{{ URL('store/user/logout') }}"><i class="fa fa-user"></i> Logout</a></li>
+                         @endif
+
                     </ul>
                 </div>
             </div>

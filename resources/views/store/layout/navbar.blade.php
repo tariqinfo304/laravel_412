@@ -23,9 +23,12 @@
                     <li
                     class=""
                     ><a href="{{ URL('store/checkout') }}">Checkout</a></li>
+
+                    @if(!empty(session("user")))
                     <li
                     class=""
                     ><a href="{{ URL('store/product') }}">Product</a></li>
+                    @endif  
                    <!--  <li
                    
                     ><a href="#">Category</a></li>

@@ -28,7 +28,7 @@
                         <div class="woocommerce">
 
                             <form enctype="multipart/form-data" 
-                            action="{{ URL('store/register') }}"
+                            action="{{ URL('store/user/register') }}"
 
 
                              class="checkout" method="post" name="checkout">
@@ -67,7 +67,7 @@
                                              <p id="billing_last_name_field" class="form-row form-row-last validate-required">
                                                 <label class="" for="billing_last_name">Password <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" placeholder="" id="billing_last_name"
+                                                <input type="password" placeholder="" id="billing_last_name"
                                                 value="{{ old('price') }}"
                                                  name="password" class="input-text ">
                                                 @error("password")
